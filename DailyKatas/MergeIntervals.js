@@ -14,7 +14,7 @@ var merge = function(intervals) {
    
       if (intervals[i + 1] && intervals[i + 1][0] > intervals[i][0] && intervals[i + 1][0] <= intervals[i][1] ) {
         merged.push([intervals[i][0], intervals[i + 1][1]]);
-        i += 1;
+        i++;
       } else {
         merged.push(intervals[i]);
       }
