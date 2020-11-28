@@ -68,8 +68,13 @@ var merge = function(intervals) {
       merged.push([intervals[i][0], intervals[i+1][1]]);
       console.log("option 8")
       i++
+    // the values in the second envelope the first
+    } else if (intervals[i + 1] && intervals[i+1][0] < intervals[i][0] && intervals[i+1][1] > intervals[i][1]) {
+      merged.push(intervals[i+1]);
+      console.log("option 9")
+      i++
 
-    } else {
+    }else {
       merged.push(intervals[i]);
       console.log("option 7");
     }
@@ -86,4 +91,5 @@ merge([[1,4],[2,3]]); // [[1,4]] option 4
 merge([[1,4],[0,0]]); // [[0,0],[1,4]]; option 5
 merge([[1,4],[4,5]]); //[[1,5]] option 6
 merge([[1,4],[1,5]]); // [[1,5]] option 8 
+merge([[1,4],[0,5]]); // [[0,5]]
 merge([[1,3],[2,6],[8,10],[15,18]]); //[[1,6],[8,10],[15,18]] 
