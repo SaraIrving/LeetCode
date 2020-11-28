@@ -64,7 +64,7 @@ var merge = function(intervals) {
       console.log("option 6");
       i++;
     // both first the same, second second is bigger 
-    } else if (intervals[i + 1] && intervals[i + 1][0] === intervals[1][0] && intervals[i+1][1] > intervals[i][1]) {
+    } else if (intervals[i + 1] && intervals[i + 1][0] === intervals[i][0] && intervals[i+1][1] > intervals[i][1]) {
       merged.push([intervals[i][0], intervals[i+1][1]]);
       console.log("option 8")
       i++
