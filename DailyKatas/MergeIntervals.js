@@ -53,17 +53,24 @@ var merge = function(intervals) {
     } else if (intervals[i + 1] && intervals[i + 1][0] < intervals[i][0] && intervals[i + 1][1] < intervals[i][0] && intervals[i + 1][1] < intervals[i][1]) {
       merged.push(intervals[i + 1], intervals[i]);
       console.log("option 5")
-
+    // first first and second second form the range
+    } else if (intervals[i + 1] && intervals[i + 1][0] > intervals[i][0] && intervals[i + 1][0] <= intervals[i][1] && intervals[i+ 1][1] > intervals[i][0] && intervals[i+ 1][1] > intervals[i][1]) {
+      merged.push([intervals[i][0], intervals[i + 1][1]]);
+      console.log("option 6");
+    } else {
+      merged.push(intervals[i]);
+      console.log("option 7");
     }
   }
    console.log('merged = ', merged)
   return merged;
 };
 
-merge([[1,3],[2,6],[8,10],[15,18]]); //[[1,6],[8,10],[15,18]]
-merge([[1,4],[4,5]]); //[[1,5]]
+
 merge([[1,4],[1,4]]); //[[1,4]] option 1
 merge([[1,4],[0,4]]); //[[0, 4]] option 2
 merge([[1,4],[0,1]]); // [[0,4]] option 3
 merge([[1,4],[2,3]]); // [[1,4]] option 4
-merge([[1,4],[0,0]]); // [[0,0],[1,4]];
+merge([[1,4],[0,0]]); // [[0,0],[1,4]]; option 5
+merge([[1,4],[4,5]]); //[[1,5]] option 6
+merge([[1,3],[2,6],[8,10],[15,18]]); //[[1,6],[8,10],[15,18]]
